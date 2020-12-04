@@ -121,7 +121,7 @@ namespace ModLoaderAmongUs
             {
                 Directory.CreateDirectory(appFolder);
                 Console.WriteLine("The directory {0} was created successfully at {1}.", appFolder, Directory.GetCreationTime($"{appFolder}"));
-            }
+            } //TODO: Add else that removes folder and rewrites everything for update functionality.
 
 
             if (!Directory.Exists($@"{appFolder}\Mods"))
