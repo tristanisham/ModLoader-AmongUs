@@ -1,7 +1,7 @@
 # ModLoader-AmongUs
 ## A small program to automate modifying the game Among Us.
 
-Among Us, the popular social deception game on Steam and mobile devices has been, for many, a salve on the burn of 2020. However, the team developing the game is small, and their [code base outdated](https://innersloth.itch.io/among-us/devlog/181107/the-future-of-among-us). 
+Among Us, the popular social deception game on Steam and mobile devices has been, for many, a salve on the burn of 2020. However, the team developing the game is small, and their [code base is outdated](https://innersloth.itch.io/among-us/devlog/181107/the-future-of-among-us). 
 
 > The main reason we are shooting for a sequel is because the codebase of Among Us 1 is so outdated and not built to support adding so much new content. However, seeing how many people are enjoying Among Us 1 really makes us want to be able to support the game and take it to the next level. We have decided to cancel Among Us 2 and instead put all our focus into improving Among Us 1.
 
