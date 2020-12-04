@@ -14,3 +14,6 @@ So, in the meantime, many have developed mods for the game. They're mostly serve
 * GUI
 * Mod store
 * Client Side Mods
+
+## Get in Contact
+[Discord](https://discord.gg/KPMjdBXn8N)
