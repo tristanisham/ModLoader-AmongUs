@@ -86,7 +86,7 @@ namespace ModLoaderAmongUs
                 }
 
                 //RESUME HERE TOMORROW
-                
+                Console.WriteLine(gamePath);
 
             }
             catch (Exception e)
