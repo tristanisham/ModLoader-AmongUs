@@ -2,6 +2,8 @@
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
+
 
 namespace ModLoaderAmongUs
 {
@@ -69,8 +71,7 @@ namespace ModLoaderAmongUs
                 {
                     if (inputCheck == true)
                     {
-                        gamePath = $@"C:\Users\{pcUsers[userIndexNum]}\AppData\LocalLow\Innersloth\Among Us";
-                        Console.WriteLine(gamePath);
+                        gamePath = $@"C:\Users\{pcUsers[userIndexNum]}\AppData\LocalLow\Innersloth\Among Us\";
                         break;
                     } //TODO: Need to improve error handling using while true and a method to capture user input. 
                     else
@@ -86,8 +87,7 @@ namespace ModLoaderAmongUs
                 }
 
                 //RESUME HERE TOMORROW
-                Console.WriteLine(gamePath);
-
+                DatReplace(gamePath);
             }
             catch (Exception e)
             {
@@ -105,6 +105,80 @@ namespace ModLoaderAmongUs
                 }
             }
             return false;
+        }
+
+        public static void DatReplace(string filePath)
+        {
+            string _regionInfoDAT = $"{filePath}regionInfo.dat";
+
+
+
+            string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            string appFolder = Path.Combine(appData, "ModLoader_AmongUS");
+
+
+            if (!Directory.Exists(appFolder))
+            {
+                Directory.CreateDirectory(appFolder);
+                Console.WriteLine("The directory {0} was created successfully at {1}.", appFolder, Directory.GetCreationTime($"{appFolder}"));
+            }
+
+
+            if (!Directory.Exists($@"{appFolder}\Mods"))
+            {
+                Directory.CreateDirectory($@"{appFolder}\Mods");
+                Console.WriteLine("The directory {0}\\Mods was created successfully at {1}.\n", appFolder, Directory.GetCreationTime($@"{appFolder}\Mods"));
+            }
+
+            Console.WriteLine("Do you want to install 'Skeld.net'? (y, yes/n, no");
+
+            
+            bool datTransferSuccessful = false;
+            //Location of download
+            string datLocation = $@"{appFolder}\Mods\Skeld_net\regionInfo.dat";
+            while (true)
+            {
+                string downloadModAns = Convert.ToString(Console.ReadLine());
+                downloadModAns = downloadModAns.ToLower();
+
+                if (downloadModAns == "y" || downloadModAns == "ye" || downloadModAns == "yes")
+                {
+                    using var client = new WebClient();
+                    client.DownloadFile("https://skeld.net/setup/regionInfo.dat", datLocation);
+                    datTransferSuccessful = File.Exists(datLocation);
+                    
+                    break;
+                } 
+                else if (downloadModAns =="n" || downloadModAns =="no")
+                {
+                    Console.WriteLine("No other options available");
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    Console.WriteLine("Please type 'yes', 'y', or 'n', no'");
+
+                }
+
+            }
+
+            if (datTransferSuccessful)
+            {
+                Console.WriteLine("regionInfo.dat created");
+            }
+            else if (!datTransferSuccessful)
+            {
+                Console.WriteLine("regionInfo.dat doesn't exist. Restart program and try again.");
+                // TODO: Add logging
+                Environment.Exit(0);
+            }
+            else
+            {
+                Console.WriteLine("Create error message. File wasn't created");
+                //TODO: Add logging
+                Environment.Exit(0);
+            }
+
         }
     }
 }
