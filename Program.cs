@@ -9,7 +9,6 @@ namespace ModLoaderAmongUs
 {
     class Program
     {
-        private const string PATH = "C:/Users/Tristan Isham/AppData/LocalLow/Innersloth/Among Us";
 
         static void Main(string[] args)
         {
