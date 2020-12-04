@@ -126,5 +126,10 @@ namespace ModLoaderAmongUs
             //RESUME HERE 12/04/20
 
         }
+
+        public static void ReplaceDat(string FiletoMoveAndDelete, string FileToReplace, string BackupOfFileToReplace)
+        {
+            /*File.Replace*/
+        }
     }
 }
