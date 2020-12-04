@@ -10,6 +10,7 @@ namespace ModLoaderAmongUs
     class Program
     {
 
+
         static void Main(string[] args)
         {
             Console.WriteLine(" Welcome to ModLoader - Among Us!");
@@ -20,13 +21,13 @@ namespace ModLoaderAmongUs
         //TODO: Add long terms retention so users don't need to do this every time
         public static void Greeting()
         {
-            Console.WriteLine("First, what user are you? \n");
+            /*Console.WriteLine("First, what user are you? \n");
             int i = 0;
-            Dictionary<int, string> pcUsers = new Dictionary<int, string>();
+            Dictionary<int, string> pcUsers = new Dictionary<int, string>();*/
             try
             {
                 //Goes through all directories in \Users and adds them to a dictionary.
-                string[] dirs = Directory.GetDirectories(@"C:\Users\", "*");
+               /* string[] dirs = Directory.GetDirectories(@"C:\Users\", "*");
                 foreach (string dir in dirs)
                 {
 
@@ -48,7 +49,7 @@ namespace ModLoaderAmongUs
                 Console.WriteLine("Please enter number...");
                 int userIndexNum = Convert.ToInt32(Console.ReadLine());
                 //Validates user input 
-                /* bool inputCheck = false;
+                *//* bool inputCheck = false;
 
                  foreach (var key in pcUsers.Keys)
                  {
@@ -61,7 +62,7 @@ namespace ModLoaderAmongUs
                      {
                          inputCheck = false;
                      }
-                 }*/
+                 }*//*
 
                 bool inputCheck = InputEval(pcUsers, userIndexNum);
                 string gamePath = "";
@@ -83,10 +84,13 @@ namespace ModLoaderAmongUs
                         break;
 
                     }
-                }
+                }*/
 
-                //Creates File and Updates Game
-                DatReplace(gamePath);
+            string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
+            //Creates File and Updates Game
+            DatReplace(appData);
+
             }
             catch (Exception e)
             {
@@ -108,12 +112,9 @@ namespace ModLoaderAmongUs
 
         public static void DatReplace(string filePath)
         {
-            string _regionInfoDAT = $"{filePath}regionInfo.dat";
-
-
-
-            string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string appFolder = Path.Combine(appData, "ModLoader_AmongUS");
+            
+            /*string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);*/
+            string appFolder = Path.Combine(filePath, "ModLoader_AmongUS");
 
 
             if (!Directory.Exists(appFolder))
