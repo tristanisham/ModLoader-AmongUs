@@ -86,7 +86,7 @@ namespace ModLoaderAmongUs
                     }
                 }
 
-                //RESUME HERE TOMORROW
+                //Creates File and Updates Game
                 DatReplace(gamePath);
             }
             catch (Exception e)
@@ -180,6 +180,8 @@ namespace ModLoaderAmongUs
                 //TODO: Add logging
                 Environment.Exit(0);
             }
+
+            //RESUME HERE 12/04/20
 
         }
     }
