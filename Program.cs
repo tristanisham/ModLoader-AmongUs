@@ -143,6 +143,8 @@ namespace ModLoaderAmongUs
 
                 if (downloadModAns == "y" || downloadModAns == "ye" || downloadModAns == "yes")
                 {
+                    Directory.CreateDirectory($@"{appFolder}\Mods\Skeld_net");
+                    Console.WriteLine("The directory {0}\\Mods\\Skeld_net was created successfully at {1}.\n", appFolder, Directory.GetCreationTime($@"{appFolder}\Mods\Skeld_net"));
                     using var client = new WebClient();
                     client.DownloadFile("https://skeld.net/setup/regionInfo.dat", datLocation);
                     datTransferSuccessful = File.Exists(datLocation);
