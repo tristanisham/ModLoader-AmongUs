@@ -63,7 +63,7 @@ namespace ModLoaderAmongUs
                  }*/
 
                 bool inputCheck = InputEval(pcUsers, userIndexNum);
-                string gamePath ="";
+                string gamePath = "";
                 //Response to users
                 while (true)
                 {
@@ -81,7 +81,7 @@ namespace ModLoaderAmongUs
                             "OR\n" +
                             "*Public");
                         break;
-                        
+
                     }
                 }
 
@@ -102,7 +102,7 @@ namespace ModLoaderAmongUs
                 if (key == input)
                 {
                     return true;
-                } 
+                }
             }
             return false;
         }
