@@ -26,65 +26,7 @@ namespace ModLoaderAmongUs
             Dictionary<int, string> pcUsers = new Dictionary<int, string>();*/
             try
             {
-                //Goes through all directories in \Users and adds them to a dictionary.
-               /* string[] dirs = Directory.GetDirectories(@"C:\Users\", "*");
-                foreach (string dir in dirs)
-                {
-
-                    if (!pcUsers.ContainsKey(i))
-                    {
-                        pcUsers.Add(i, dir);
-                    }
-
-                    i++;
-                }
-
-                foreach (KeyValuePair<int, string> kv in pcUsers)
-                {
-
-                    Console.WriteLine("{0}", kv);
-                }
-
-                Console.WriteLine("\n");
-                Console.WriteLine("Please enter number...");
-                int userIndexNum = Convert.ToInt32(Console.ReadLine());
-                //Validates user input 
-                *//* bool inputCheck = false;
-
-                 foreach (var key in pcUsers.Keys)
-                 {
-                     if (key == userIndexNum)
-                     {
-                         inputCheck = true;
-
-                     }
-                     else
-                     {
-                         inputCheck = false;
-                     }
-                 }*//*
-
-                bool inputCheck = InputEval(pcUsers, userIndexNum);
-                string gamePath = "";
-                //Response to users
-                while (true)
-                {
-                    if (inputCheck == true)
-                    {
-                        gamePath = $@"C:\Users\{pcUsers[userIndexNum]}\AppData\LocalLow\Innersloth\Among Us\";
-                        break;
-                    } //TODO: Need to improve error handling using while true and a method to capture user input. 
-                    else
-                    {
-                        Console.WriteLine("Unintended Error: Please make sure you're not entering a key associated with:\n" +
-                            "*Default User\n" +
-                            "*Default\n" +
-                            "OR\n" +
-                            "*Public");
-                        break;
-
-                    }
-                }*/
+                
 
             string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
