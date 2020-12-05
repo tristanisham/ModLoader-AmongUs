@@ -21,8 +21,9 @@ So, in the meantime, many have developed mods for the game. They're mostly serve
 [Discord](https://discord.gg/KPMjdBXn8N)
 
 # How to use MULA:
-1. Download MULA from the release tab here on Github.
-2. Run the EXE
+1. [Download MULA](https://is.gd/stats.php?url=MULA_v0_0_4_alpha_1) from the release tab here on Github.
+2. Unpack the zip file wherever you please.
+2. Run the ModLauncher-AmongUs.exe (it's got a little dollar sign icon)
 3. Follow the in-app instructions
 4. If everything works, boot up Among US and enjoy. 
 5. If you want to play on regular servers, just change your region in the main menu. Among Us will reconfigure itself. Simply run the program again to reinstall whenever.
