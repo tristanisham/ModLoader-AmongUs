@@ -26,12 +26,12 @@ namespace ModLoaderAmongUs
             Dictionary<int, string> pcUsers = new Dictionary<int, string>();*/
             try
             {
-                
 
-            string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-            //Creates File and Updates Game
-            DatReplace(appData);
+                string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
+                //Creates File and Updates Game
+                DatReplace(appData);
 
             }
             catch (Exception e)
@@ -54,7 +54,7 @@ namespace ModLoaderAmongUs
 
         public static void DatReplace(string filePath)
         {
-            
+
             /*string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);*/
             string appFolder = Path.Combine(filePath, "ModLoader_AmongUS");
 
@@ -74,7 +74,7 @@ namespace ModLoaderAmongUs
 
             Console.WriteLine("Do you want to install 'Skeld.net'? (y, yes/n, no");
 
-            
+
             bool datTransferSuccessful = false;
             //Location of download
             string datLocation = $@"{appFolder}\Mods\Skeld_net\regionInfo.dat";
@@ -90,10 +90,10 @@ namespace ModLoaderAmongUs
                     using var client = new WebClient();
                     client.DownloadFile("https://skeld.net/setup/regionInfo.dat", datLocation);
                     datTransferSuccessful = File.Exists(datLocation);
-                    
+
                     break;
-                } 
-                else if (downloadModAns =="n" || downloadModAns =="no")
+                }
+                else if (downloadModAns == "n" || downloadModAns == "no")
                 {
                     Console.WriteLine("No other options available");
                     Environment.Exit(0);
@@ -123,13 +123,30 @@ namespace ModLoaderAmongUs
                 Environment.Exit(0);
             }
 
-            //RESUME HERE 12/04/20
+            //Add as constant later
+            string userPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            string amongUs = $@"{userPath}\AppData\LocalLow\Innersloth\Among Us";
+            amongUs = Path.GetFullPath(amongUs);
+            string datDestination = Path.GetFullPath($@"{amongUs}\regionInfo.dat");
 
+
+            ReplaceDat(datLocation, datDestination, false);
+
+
+            if (!File.Exists(amongUs + "\\regionInfo.dat"))
+            {
+                Console.WriteLine("Process failure");
+            }
+            else
+            {
+                Console.WriteLine("Process Success");
+            }
         }
 
-        public static void ReplaceDat(string FiletoMoveAndDelete, string FileToReplace, string BackupOfFileToReplace)
+        public static void ReplaceDat(string fileToMoveAndDelete, string fileToReplace, bool metaDataSetting)
         {
-            /*File.Replace*/
+            File.Delete(fileToReplace);
+            File.Copy(fileToMoveAndDelete, fileToReplace, metaDataSetting);
         }
     }
 }
