@@ -1,5 +1,7 @@
 # ModLoader-AmongUs
 ## A small program to automate modifying the game Among Us.
+**First Release** [win-x64 0.0.4 alpha v1](https://github.com/tristanisham/ModLoader-AmongUs/releases/tag/v0.0.4-alpha.1)
+<hr>
 
 Among Us, the popular social deception game on Steam and mobile devices has been, for many, a salve on the burn of 2020. However, the team developing the game is small, and their [code base is outdated](https://innersloth.itch.io/among-us/devlog/181107/the-future-of-among-us). 
 
