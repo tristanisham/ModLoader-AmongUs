@@ -21,5 +21,6 @@ So, in the meantime, many have developed mods for the game. They're mostly serve
 
 ## Get in Contact
 [Telegram *channel*](https://bit.ly/2JSp78J)
+
 [Discord](https://bit.ly/36HAVn3)
 
