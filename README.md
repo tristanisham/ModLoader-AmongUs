@@ -1,6 +1,6 @@
-# ModLoader-AmongUs
+# ModLoader-AmongUs (MULA)
 ## A small program to automate modifying the game Among Us.
-**First Release** [win-x64 v0.0.4 alpha 1](https://github.com/tristanisham/ModLoader-AmongUs/releases/tag/v0.0.4-alpha.1)
+**NEW Release** [win-x64 v0.0.4 alpha 2](https://bit.ly/2JDbHxu)
 <hr>
 
 Among Us, the popular social deception game on Steam and mobile devices has been, for many, a salve on the burn of 2020. However, the team developing the game is small, and their [code base is outdated](https://innersloth.itch.io/among-us/devlog/181107/the-future-of-among-us). 
@@ -9,21 +9,17 @@ Among Us, the popular social deception game on Steam and mobile devices has been
 
 So, in the meantime, many have developed mods for the game. They're mostly serverside, and not hard to install, but due to the game's popularity many players looking for new content and mods might not be technically inclined. That's why I'm building this little app. I chose c# and dotnet 5 (to be upgraded when 6 LTS arrives). I figured .NET would be the best language to build a very accessible Windows app in. 
 
-## How to use ML-AS
+## How to install ML-AS
 **To be written**
 
 ## Goals
+[See all issues](https://github.com/tristanisham/ModLoader-AmongUs/issues)
+### Some longterm goals
 * GUI
 * Mod store
 * Client Side Mods
 
 ## Get in Contact
-[Discord](https://discord.gg/KPMjdBXn8N)
+[Telegram *channel*](https://bit.ly/2JSp78J)
+[Discord](https://bit.ly/36HAVn3)
 
-# How to use MULA:
-1. [Download MULA](https://is.gd/stats.php?url=MULA_v0_0_4_alpha_1) from the release tab here on Github.
-2. Unpack the zip file wherever you please.
-2. Run the ModLauncher-AmongUs.exe (it's got a little dollar sign icon)
-3. Follow the in-app instructions
-4. If everything works, boot up Among US and enjoy. 
-5. If you want to play on regular servers, just change your region in the main menu. Among Us will reconfigure itself. Simply run the program again to reinstall whenever.
