@@ -24,7 +24,7 @@ namespace ModLoaderAmongUs
             return false;
         }
 
-        public static void DatReplace(string filePath)
+        public static void DatReplace(string filePath, string downloadFile)
         {
 
             /*string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);*/

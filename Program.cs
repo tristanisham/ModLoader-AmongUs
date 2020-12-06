@@ -9,7 +9,7 @@ namespace ModLoaderAmongUs
 {
     class Program
     {
-
+        public const string SKELD_NET = "https://skeld.net/setup/regionInfo.dat";
 
         static void Main(string[] args)
         {
@@ -21,6 +21,7 @@ namespace ModLoaderAmongUs
         //TODO: Add long terms retention so users don't need to do this every time
         public static void Greeting()
         {
+            
             /*Console.WriteLine("First, what user are you? \n");
             int i = 0;
             Dictionary<int, string> pcUsers = new Dictionary<int, string>();*/
@@ -31,7 +32,7 @@ namespace ModLoaderAmongUs
                 string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
                 //Creates File and Updates Game
-                ModLoaderAmongUs.CoreOps.DatReplace(appData);
+                CoreOps.DatReplace(appData, SKELD_NET);
 
             }
             catch (Exception e)
