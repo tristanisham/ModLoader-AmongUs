@@ -1,46 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.IO;
 using System.Collections;
-using System.Collections.Generic;
 using System.Net;
-
 
 namespace ModLoaderAmongUs
 {
-    class Program
+    class Collections
     {
 
-
-        static void Main(string[] args)
-        {
-            Console.WriteLine(" Welcome to ModLoader - Among Us!");
-            Greeting();
-        }
-
-        // Finds path to game for new users.
-        //TODO: Add long terms retention so users don't need to do this every time
-        public static void Greeting()
-        {
-            /*Console.WriteLine("First, what user are you? \n");
-            int i = 0;
-            Dictionary<int, string> pcUsers = new Dictionary<int, string>();*/
-            try
-            {
-
-
-                string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-
-                //Creates File and Updates Game
-                ModLoaderAmongUs.Collections.DatReplace(appData);
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("The process failed: {0}", e.ToString());
-            }
-        }
-
-/*        public static bool InputEval(Dictionary<int, string> dict, int input)
+        public static bool InputEval(Dictionary<int, string> dict, int input)
         {
             foreach (var key in dict.Keys)
             {
@@ -50,12 +22,12 @@ namespace ModLoaderAmongUs
                 }
             }
             return false;
-        }*/
+        }
 
-/*        public static void DatReplace(string filePath)
+        public static void DatReplace(string filePath)
         {
 
-            *//*string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);*//*
+            /*string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);*/
             string appFolder = Path.Combine(filePath, "ModLoader_AmongUS");
 
 
@@ -72,7 +44,7 @@ namespace ModLoaderAmongUs
                 Console.WriteLine("The directory {0}\\Mods was created successfully at {1}.\n", appFolder, Directory.GetCreationTime($@"{appFolder}\Mods"));
             }
 
-            Console.WriteLine("Do you want to install 'Skeld.net'? (y, yes/n, no");
+            Console.WriteLine("Do you want to install 'Skeld.net'? (y, yes/n, no)");
 
 
             bool datTransferSuccessful = false;
@@ -141,12 +113,14 @@ namespace ModLoaderAmongUs
             {
                 Console.WriteLine("Process Success");
             }
-        }*/
 
-/*        public static void ReplaceDat(string fileToMoveAndDelete, string fileToReplace, bool metaDataSetting)
+            
+        }
+
+        public static void ReplaceDat(string fileToMoveAndDelete, string fileToReplace, bool metaDataSetting)
         {
             File.Delete(fileToReplace);
             File.Copy(fileToMoveAndDelete, fileToReplace, metaDataSetting);
-        }*/
+        }
     }
 }
