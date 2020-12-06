@@ -12,20 +12,12 @@ namespace ModLoaderAmongUs
     class CoreOps
     {
 
-        public static bool InputEval(Dictionary<int, string> dict, int input)
-        {
-            foreach (var key in dict.Keys)
-            {
-                if (key == input)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
         public static void DatReplace(string filePath, string downloadFile)
         {
+            if (downloadFile is null)
+            {
+                throw new ArgumentNullException(nameof(downloadFile));
+            }
 
             /*string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);*/
             string appFolder = Path.Combine(filePath, "ModLoader_AmongUS");
