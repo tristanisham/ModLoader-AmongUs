@@ -9,7 +9,7 @@ Among Us, the popular social deception game on Steam and mobile devices has been
 
 So, in the meantime, many have developed mods for the game. They're mostly serverside, and not hard to install, but due to the game's popularity many players looking for new content and mods might not be technically inclined. That's why I'm building this little app. I chose c# and dotnet 5 (to be upgraded when 6 LTS arrives). I figured .NET would be the best language to build a very accessible Windows app in. 
 
-## How to install ML-AS
+## How to install MULA
 **To be written**
 
 ## Goals
