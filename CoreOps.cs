@@ -9,7 +9,7 @@ using System.Net;
 
 namespace ModLoaderAmongUs
 {
-    class Collections
+    class CoreOps
     {
 
         public static bool InputEval(Dictionary<int, string> dict, int input)

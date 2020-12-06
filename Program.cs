@@ -31,7 +31,7 @@ namespace ModLoaderAmongUs
                 string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
                 //Creates File and Updates Game
-                ModLoaderAmongUs.Collections.DatReplace(appData);
+                ModLoaderAmongUs.CoreOps.DatReplace(appData);
 
             }
             catch (Exception e)
