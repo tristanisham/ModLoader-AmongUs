@@ -9,11 +9,11 @@ namespace ModLoaderAmongUs
 {
     class Program
     {
-        public const string SKELD_NET = "https://skeld.net/setup/regionInfo.dat";
+        public const string SkeldNet = "https://skeld.net/setup/regionInfo.dat";
 
         static void Main(string[] args)
         {
-            Console.WriteLine(" Welcome to ModLoader - Among Us!");
+            Console.WriteLine(" Welcome to ModLoader - Among Us! (MULA)");
             Greeting();
         }
 
@@ -21,7 +21,8 @@ namespace ModLoaderAmongUs
         //TODO: Add long terms retention so users don't need to do this every time
         public static void Greeting()
         {
-            
+
+
             /*Console.WriteLine("First, what user are you? \n");
             int i = 0;
             Dictionary<int, string> pcUsers = new Dictionary<int, string>();*/
@@ -32,7 +33,36 @@ namespace ModLoaderAmongUs
                 string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
                 //Creates File and Updates Game
-                CoreOps.DatReplace(appData, SKELD_NET);
+                //START HERE//START HERE//START HERE//START HERE//START HERE//START HERE//START HERE//START HERE//START HERE//START HERE
+                Console.WriteLine("Select Skeld.net?");
+                string downloadModAns = Console.ReadLine();
+                downloadModAns = downloadModAns.ToString().Trim();
+
+                while (true)
+                {
+                    
+                    if (downloadModAns == "y" || downloadModAns == "ye" || downloadModAns == "yes")
+                    {
+                        Server skeld_net = new Server(SkeldNet, "Skeld.net", "Skeld_Net");
+
+                        ServerSwitcher.DatReplace(appData, skeld_net.LocationOfDat, skeld_net.ModName, skeld_net.ModFolder);
+
+
+                        break;
+                    }
+                    else if (downloadModAns == "n" || downloadModAns == "no")
+                    {
+                        Console.WriteLine("No other options available at this time");
+                        Environment.Exit(0);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please type 'yes', 'y', or 'n', no'");
+
+                    }
+
+                }
+
 
             }
             catch (Exception e)
@@ -40,114 +70,21 @@ namespace ModLoaderAmongUs
                 Console.WriteLine("The process failed: {0}", e.ToString());
             }
         }
-
-/*        public static bool InputEval(Dictionary<int, string> dict, int input)
+        // Add shit here if you want to kill classes.
+        public struct Server
         {
-            foreach (var key in dict.Keys)
+            public string LocationOfDat;
+            public string ModName;
+            public string ModFolder;
+
+            public Server(string url, string title, string directory)
             {
-                if (key == input)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }*/
-
-/*        public static void DatReplace(string filePath)
-        {
-
-            *//*string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);*//*
-            string appFolder = Path.Combine(filePath, "ModLoader_AmongUS");
-
-
-            if (!Directory.Exists(appFolder))
-            {
-                Directory.CreateDirectory(appFolder);
-                Console.WriteLine("The directory {0} was created successfully at {1}.", appFolder, Directory.GetCreationTime($"{appFolder}"));
-            } //TODO: Add else that removes folder and rewrites everything for update functionality.
-
-
-            if (!Directory.Exists($@"{appFolder}\Mods"))
-            {
-                Directory.CreateDirectory($@"{appFolder}\Mods");
-                Console.WriteLine("The directory {0}\\Mods was created successfully at {1}.\n", appFolder, Directory.GetCreationTime($@"{appFolder}\Mods"));
+                LocationOfDat = url;
+                ModName = title;
+                ModFolder = directory;
             }
 
-            Console.WriteLine("Do you want to install 'Skeld.net'? (y, yes/n, no");
 
-
-            bool datTransferSuccessful = false;
-            //Location of download
-            string datLocation = $@"{appFolder}\Mods\Skeld_net\regionInfo.dat";
-            while (true)
-            {
-                string downloadModAns = Convert.ToString(Console.ReadLine());
-                downloadModAns = downloadModAns.ToLower();
-
-                if (downloadModAns == "y" || downloadModAns == "ye" || downloadModAns == "yes")
-                {
-                    Directory.CreateDirectory($@"{appFolder}\Mods\Skeld_net");
-                    Console.WriteLine("The directory {0}\\Mods\\Skeld_net was created successfully at {1}.\n", appFolder, Directory.GetCreationTime($@"{appFolder}\Mods\Skeld_net"));
-                    using var client = new WebClient();
-                    client.DownloadFile("https://skeld.net/setup/regionInfo.dat", datLocation);
-                    datTransferSuccessful = File.Exists(datLocation);
-
-                    break;
-                }
-                else if (downloadModAns == "n" || downloadModAns == "no")
-                {
-                    Console.WriteLine("No other options available");
-                    Environment.Exit(0);
-                }
-                else
-                {
-                    Console.WriteLine("Please type 'yes', 'y', or 'n', no'");
-
-                }
-
-            }
-
-            if (datTransferSuccessful)
-            {
-                Console.WriteLine("regionInfo.dat created");
-            }
-            else if (!datTransferSuccessful)
-            {
-                Console.WriteLine("regionInfo.dat doesn't exist. Restart program and try again.");
-                // TODO: Add logging
-                Environment.Exit(0);
-            }
-            else
-            {
-                Console.WriteLine("Create error message. File wasn't created");
-                //TODO: Add logging
-                Environment.Exit(0);
-            }
-
-            //Add as constant later
-            string userPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            string amongUs = $@"{userPath}\AppData\LocalLow\Innersloth\Among Us";
-            amongUs = Path.GetFullPath(amongUs);
-            string datDestination = Path.GetFullPath($@"{amongUs}\regionInfo.dat");
-
-
-            ReplaceDat(datLocation, datDestination, false);
-
-
-            if (!File.Exists(amongUs + "\\regionInfo.dat"))
-            {
-                Console.WriteLine("Process failure");
-            }
-            else
-            {
-                Console.WriteLine("Process Success");
-            }
-        }*/
-
-/*        public static void ReplaceDat(string fileToMoveAndDelete, string fileToReplace, bool metaDataSetting)
-        {
-            File.Delete(fileToReplace);
-            File.Copy(fileToMoveAndDelete, fileToReplace, metaDataSetting);
-        }*/
+        }
     }
 }

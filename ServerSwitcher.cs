@@ -1,23 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using System.Collections;
 using System.Net;
 
 namespace ModLoaderAmongUs
 {
-    class CoreOps
+    public class ServerSwitcher
     {
+        public string userPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
 
-        public static void DatReplace(string filePath, string downloadFile)
+
+        public static void DatReplace(string filePath, string url, string title, string directory)
         {
-            if (downloadFile is null)
-            {
-                throw new ArgumentNullException(nameof(downloadFile));
-            }
 
             /*string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);*/
             string appFolder = Path.Combine(filePath, "ModLoader_AmongUS");
@@ -36,12 +29,12 @@ namespace ModLoaderAmongUs
                 Console.WriteLine("The directory {0}\\Mods was created successfully at {1}.\n", appFolder, Directory.GetCreationTime($@"{appFolder}\Mods"));
             }
 
-            Console.WriteLine("Do you want to install 'Skeld.net'? (y, yes/n, no)");
+            Console.WriteLine($"Do you want to the neccesary files for: '{title}'? (y, yes/n, no)");
 
 
             bool datTransferSuccessful = false;
             //Location of download
-            string datLocation = $@"{appFolder}\Mods\Skeld_net\regionInfo.dat";
+            string datLocation = $@"{appFolder}\Mods\{directory}\regionInfo.dat";
             while (true)
             {
                 string downloadModAns = Convert.ToString(Console.ReadLine());
@@ -49,10 +42,10 @@ namespace ModLoaderAmongUs
 
                 if (downloadModAns == "y" || downloadModAns == "ye" || downloadModAns == "yes")
                 {
-                    Directory.CreateDirectory($@"{appFolder}\Mods\Skeld_net");
-                    Console.WriteLine("The directory {0}\\Mods\\Skeld_net was created successfully at {1}.\n", appFolder, Directory.GetCreationTime($@"{appFolder}\Mods\Skeld_net"));
+                    Directory.CreateDirectory($@"{appFolder}\Mods\{directory}");
+                    Console.WriteLine("The directory {0}\\Mods\\{1} was created successfully at {2}.\n", appFolder, directory, Directory.GetCreationTime($@"{appFolder}\Mods\Skeld_net"));
                     using var client = new WebClient();
-                    client.DownloadFile("https://skeld.net/setup/regionInfo.dat", datLocation);
+                    client.DownloadFile(url, datLocation);
                     datTransferSuccessful = File.Exists(datLocation);
 
                     break;
@@ -106,13 +99,15 @@ namespace ModLoaderAmongUs
                 Console.WriteLine("Process Success");
             }
 
-            
+
         }
 
-        public static void ReplaceDat(string fileToMoveAndDelete, string fileToReplace, bool metaDataSetting)
+        private static void ReplaceDat(string fileToMoveAndDelete, string fileToReplace, bool metaDataSetting)
         {
             File.Delete(fileToReplace);
             File.Copy(fileToMoveAndDelete, fileToReplace, metaDataSetting);
         }
+
+
     }
 }
