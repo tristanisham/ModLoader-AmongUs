@@ -72,6 +72,14 @@ namespace ModLoaderAmongUs
                 Console.WriteLine("The process failed: {0}", e.ToString());
             }
         }
+
+/*        static void Ending()
+        {
+            Console.WriteLine("Press any key to close program...");
+            Console.ReadLine();
+        }*/
+
+
         // Add shit here if you want to kill classes.
 /*        public struct Server
         {
