@@ -13,7 +13,8 @@ namespace ModLoaderAmongUs
 
         static void Main(string[] args)
         {
-            Console.WriteLine(" Welcome to ModLoader - Among Us! (MULA)");
+            Console.WriteLine("Welcome to ModLoader - Among Us! (MULA)");
+            Console.WriteLine("Copyright 2020 Tristan Isham");
             Greeting();
         }
 
@@ -35,6 +36,7 @@ namespace ModLoaderAmongUs
                 //Creates File and Updates Game
                 //START HERE//START HERE//START HERE//START HERE//START HERE//START HERE//START HERE//START HERE//START HERE//START HERE
                 Console.WriteLine("Select Skeld.net?");
+                Console.WriteLine("Please type 'yes', 'y', or 'n', no'");
                 string downloadModAns = Console.ReadLine();
                 downloadModAns = downloadModAns.ToString().Trim();
 
@@ -43,7 +45,7 @@ namespace ModLoaderAmongUs
                     
                     if (downloadModAns == "y" || downloadModAns == "ye" || downloadModAns == "yes")
                     {
-                        Server skeld_net = new Server(SkeldNet, "Skeld.net", "Skeld_Net");
+                        DataClasses.Server skeld_net = new DataClasses.Server(SkeldNet, "Skeld.net", "Skeld_Net");
 
                         ServerSwitcher.DatReplace(appData, skeld_net.LocationOfDat, skeld_net.ModName, skeld_net.ModFolder);
 
@@ -71,7 +73,7 @@ namespace ModLoaderAmongUs
             }
         }
         // Add shit here if you want to kill classes.
-        public struct Server
+/*        public struct Server
         {
             public string LocationOfDat;
             public string ModName;
@@ -85,6 +87,6 @@ namespace ModLoaderAmongUs
             }
 
 
-        }
+        }*/
     }
 }
