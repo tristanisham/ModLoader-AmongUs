@@ -16,6 +16,9 @@ namespace ModLoaderAmongUs
             Console.WriteLine("Welcome to ModLoader - Among Us! (MULA)");
             Console.WriteLine("Copyright 2020 Tristan Isham");
             Greeting();
+            Console.WriteLine("Thanks for using MULA!");
+            Console.WriteLine("Press any key to close...");
+            Console.ReadLine();
         }
 
         // Finds path to game for new users.
@@ -34,9 +37,9 @@ namespace ModLoaderAmongUs
                 string appData = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
                 //Creates File and Updates Game
-                //START HERE//START HERE//START HERE//START HERE//START HERE//START HERE//START HERE//START HERE//START HERE//START HERE
+                
                 Console.WriteLine("Select Skeld.net?");
-                Console.WriteLine("Please type 'yes', 'y', or 'n', no'");
+                Console.WriteLine("Please type ('yes', 'y' / 'n', no')");
                 string downloadModAns = Console.ReadLine();
                 downloadModAns = downloadModAns.ToString().Trim();
 
@@ -59,7 +62,7 @@ namespace ModLoaderAmongUs
                     }
                     else
                     {
-                        Console.WriteLine("Please type 'yes', 'y', or 'n', no'");
+                        Console.WriteLine("Please type ('yes', 'y' / 'n', no'");
 
                     }
 

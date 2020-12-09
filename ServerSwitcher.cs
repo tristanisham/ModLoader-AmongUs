@@ -29,7 +29,7 @@ namespace ModLoaderAmongUs
                 Console.WriteLine("The directory {0}\\Mods was created successfully at {1}.\n", appFolder, Directory.GetCreationTime($@"{appFolder}\Mods"));
             }
 
-            Console.WriteLine($"Do you want to the neccesary files for: '{title}'? (y, yes/n, no)");
+            Console.WriteLine($"Do you want to install the neccesary files for: '{title}' from ther internet? (y, yes/n, no)");
 
 
             bool datTransferSuccessful = false;
@@ -57,7 +57,7 @@ namespace ModLoaderAmongUs
                 }
                 else
                 {
-                    Console.WriteLine("Please type 'yes', 'y', or 'n', no'");
+                    Console.WriteLine("Please type ('yes', 'y' / 'n', no')");
 
                 }
 
