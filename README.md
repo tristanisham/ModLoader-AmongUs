@@ -24,3 +24,10 @@ So, in the meantime, many have developed mods for the game. They're mostly serve
 
 [Discord](https://bit.ly/36HAVn3)
 
+---
+
+This is ModeLoader-AmongUs (MULA). 
+The first program I ever wrote to help people.
+I had never done anything other than Web Development before and all the programming rags told me C# was a great language for Windows development. 
+Which is true, but wouldn't be my choice now. I think this is the only serious foray I ever made into the langauge. 
+Here lays history, a piece of myself I'm still proud of even if only as a milestone.
